@@ -7,8 +7,13 @@ controlledApplication.DocumentChanged+=(sender, eventArgs) =>
 {
     foreach (var id in eventArgs.GetModifiedElementIds())
     {
-        Console.Write($"Deleted:{id}");
+        Console.WriteLine($"Modified element:{id}");
     }
    
 };
-controlledApplication.MoveElement();
+while (true)
+{
+   controlledApplication.MoveElement();
+    //Замораживает поток на указанное время
+   Thread.Sleep(TimeSpan.FromSeconds(1));
+}
